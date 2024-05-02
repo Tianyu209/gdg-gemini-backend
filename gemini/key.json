@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "foodbuddy-gemini",
+  "private_key_id": "bd5a292ef7b3480d5b5a5758a1cd5d7f5b663974",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDCMeU7Muj/bEo+\n2gB3ykJRG6xB/5+R8PwAVugvbZmj2rIPQoCjJIxganFGGRz030fNhqV3gKuaNQKR\nFXRqlDRpqvtnPO9eRPAdLA7+httDkdm7AUUf4FNbDEqVvsZzozxCXOi7Ak/oQ0+l\nE94ViPVro8EX9aZieSiPMOxcdqhC+qOmG55e0708UVycpoGk9Wy1q8eVnobhkJom\n6VCvjNOovBLGrVGtd5Kpvocom9RPiBWTFYjJEaz69cArG7DHaocQhx5e781LQ4t5\ne7lFIuzQS3PpwZTyr56CitBMv1jCkLh8bubvzWeZuBhgkRjl1kKMx6TPjE+HxjgB\nUPYsxzrRAgMBAAECggEAS4FN8TYKvOFUftqRawIjxdh+Ig0rdHmf6dvgnCw/nCN4\nrxE65fPcdtJ8J3a1OQqlpuZO6MeJMUSiMloGsTfdpyY5aLsbEOq594W9cL5re3q2\njwzf3RSCJHkDePS7wZN65wyr2qZ7/kFJstQmOfZOAiOh/Nhg8JHOMNqjVBI4uw19\noSkmpwXTh50yfw/KirSAgV6tW8neSa4WS4+k+3w3xHU/FRFlmJn68Pa+8jGlqUNs\nSMZuRs40VAK6j4zwbqHhcKSGq6tSZPzQnekWhuUKBKmKeNekJ1cQja87UItMaSaD\nOMUT5rVmsAgLb3iOiJvJ+tLj/Bs0Q0HlPdbESoSBLwKBgQD1//p4EkkUL2eliTId\nToPn1Oyl5nkcLBEWLu/wqD4SiR2PFFfd+Qqr54wnDxYMWmcM0t0KjuGYDVPbW5b0\nyyeGtbsbzZC1l7rn/R6YabtuIS5T9bgRorUeU5tmBFN0bS0mG1B1m/R4lNeV75CJ\nwsZdAbgOEMb0R/paV2ZqcSs6KwKBgQDKFs2hPxHKUzdSwlDyY+fCX7Uc6EsdliTr\n4M63m46OpKE3b3rDVqKvV7ZFlmt3OYeiNY/KqeuSw3oIl+0Y+urY/LoQVvN73KHD\njU4el3v14PbEEvqwegal4/CyM/sPYiI7CYkW8kCrff2Dnd/+S3sgi5HNsxmaS+K/\nLic5tI8M8wKBgCPia08Im9Bt+diT4tOTmHpA/SRWMmSBqRxrTGT2pddeWQl+FjMz\nGPNqm283LCgxJ8cfG09m+FGN4CWnfqXG3MUxzVGI8wsKTyF4MvZYthaikHd+6JLq\nATGjUI/ZIbNiGavtYBdH4KmWTLx6bcMqvnTiw06J8/u+ZC65gR8V0xBxAoGAYW6f\nE2fh/uciHC99cW/DdE5KdrZ0SL5z7JmFcLZ6A8HRzHVd/cHOS7WBNomwJFpDT2x9\neBt2bVr7ghslf86x3Y3zcx9I4uXbw/ljuZIVfNVKg/wWi3E5tU9xY6l2GNOaZ1ZQ\nlxSTI1tqF8PNE8B2i5le4YrBBEgj+UKaPNMVyQsCgYEA5fPewIpHF6WPs7c/922m\nW45FsEu23fZlsh/ukj8bsZlhSgr0Vi23PWnJblz52PZGVKNaotRrlVhQjiFO9B85\nun/QNhMRmF31tuhHFs/c/71ttOh6xfiQwfGbdiZEfIrXSeS1mpc+vICbkx0es0F+\nePlJIGqSGGGVjiGyDZAFkOI=\n-----END PRIVATE KEY-----\n",
+  "client_email": "test01@foodbuddy-gemini.iam.gserviceaccount.com",
+  "client_id": "108058530751616742756",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/test01%40foodbuddy-gemini.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

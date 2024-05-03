@@ -49,7 +49,7 @@ def get_respond():
 @app.route('/api/recommend', methods=['GET', 'POST'])
 def get_recommend():
     base64_string = request.args.get('base64')
-    #img = base642img(base64_string)
+    base642img(base64_string)
     if request.method == 'POST':
         Prompt = request.get_json()['prompt']
     else:

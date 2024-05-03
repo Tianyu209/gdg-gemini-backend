@@ -26,9 +26,9 @@ app = Flask(__name__)
 def base642img(base64_string):
     imgdata = base64.b64decode(str(base64_string))
     img = Image.open(io.BytesIO(imgdata))
-    opencv_img= cv2.cvtColor(np.array(img), cv2.COLOR_BGR2RGB)
-    img = Image.fromarray(opencv_img.astype('uint8')).convert('RGB')
-    return img 
+    opencv_img = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2BGR)
+    cv2.imwrite('output.jpg', opencv_img)
+    return
 
 @app.route('/api/respond', methods=['GET', 'POST'])
 def get_respond():
@@ -49,12 +49,12 @@ def get_respond():
 @app.route('/api/recommend', methods=['GET', 'POST'])
 def get_recommend():
     base64_string = request.args.get('base64')
-    img = base642img(base64_string)
+    #img = base642img(base64_string)
     if request.method == 'POST':
         Prompt = request.get_json()['prompt']
     else:
         Prompt = request.args.get('prompt')
-    #img = PIL.Image.open(r'image\menu.jpeg')
+    img = Image.open(r'output.jpg')
     with open('prompt.txt', 'r') as f:
         text = f.read()
     #chat.send_message(text+Prompt,stream=True)

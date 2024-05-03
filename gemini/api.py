@@ -2,7 +2,6 @@ from flask import Flask, request, jsonify
 import textwrap
 import google.generativeai as genai
 from IPython.display import Markdown
-import PIL.Image
 import os 
 from google.oauth2 import service_account
 import cv2
@@ -16,7 +15,7 @@ os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'key.json'
 credentials = service_account.Credentials.from_service_account_file(
     'key.json', scopes=['https://www.googleapis.com/auth/cloud-platform']
 )
-model = genai.GenerativeModel('gemini-pro-vision')
+model = genai.GenerativeModel('gemini-pro-vision') 
 chat = model.start_chat(history=[])
 
 def to_markdown(text):
@@ -37,7 +36,10 @@ def get_respond():
     else:
         Prompt = request.args.get('prompt')
         
-    response = chat.send_message(Prompt, stream=True)
+    response = chat.send_message(Prompt, stream=True,generation_config=genai.types.GenerationConfig(
+        candidate_count=1,
+        max_output_tokens=50,
+        temperature=1.0))
     response.resolve()
     new = jsonify(response.txt)
     new.header.add('Access-Control-Allow-Origin','http://localhost:3000')
@@ -54,8 +56,11 @@ def get_recommend():
     #img = PIL.Image.open(r'image\menu.jpeg')
     with open('prompt.txt', 'r') as f:
         text = f.read()
-    chat.send_message(text+Prompt,stream=True)
-    response = chat.generate_content([text+Prompt,img])
+    #chat.send_message(text+Prompt,stream=True)
+    response = chat.generate_content([text+Prompt,img],generation_config=genai.types.GenerationConfig(
+        candidate_count=1,
+        max_output_tokens=50,
+        temperature=1.0))
     response.resolve()
     new = jsonify(response.txt)
     new.header.add('Access-Control-Allow-Origin','http://localhost:3000')

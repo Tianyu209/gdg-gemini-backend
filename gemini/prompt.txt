@@ -18,8 +18,8 @@ You will be sent a photo of a menu. Execute the following steps:
 
 JSON Formatting: 
 {
-  healthyDishes: dishItem[],
-  unhealthyDishes: dishItem[]
+  goodDishes: dishItem[],
+  badDishes: dishItem[]
 }
 interface dishItem{
   name: string,

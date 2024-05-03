@@ -16,6 +16,8 @@ credentials = service_account.Credentials.from_service_account_file(
     'key.json', scopes=['https://www.googleapis.com/auth/cloud-platform']
 )
 model = genai.GenerativeModel('gemini-pro-vision') 
+model1 = genai.GenerativeModel('gemini-pro') 
+
 chat = model.start_chat(history=[])
 
 def to_markdown(text):
@@ -28,7 +30,7 @@ def base642img(base64_string):
     img = Image.open(io.BytesIO(imgdata))
     opencv_img = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2BGR)
     cv2.imwrite('output.jpg', opencv_img)
-    return
+    return img
 
 @app.route('/api/respond', methods=['GET', 'POST'])
 def get_respond():
@@ -37,10 +39,7 @@ def get_respond():
     else:
         Prompt = request.args.get('prompt')
         
-    response = chat.send_message(Prompt, stream=True,generation_config=genai.types.GenerationConfig(
-        candidate_count=1,
-        max_output_tokens=50,
-        temperature=1.0))
+    response = chat.send_message(Prompt, stream=True)
     response.resolve()
     new = jsonify(response.text)
     new.headers.add('Access-Control-Allow-Origin','http://localhost:3000')
@@ -48,20 +47,17 @@ def get_respond():
 
 @app.route('/api/recommend', methods=['GET', 'POST'])
 def get_recommend():
-    base64_string = request.args.get('base64')
+    base64_string = request.form.get('base64')
     base642img(base64_string)
     if request.method == 'POST':
-        Prompt = request.get_json()['prompt']
+        Prompt = request.args.get('prompt')
     else:
         Prompt = request.args.get('prompt')
     img = Image.open(r'output.jpg')
     with open('prompt.txt', 'r') as f:
         text = f.read()
     #chat.send_message(text+Prompt,stream=True)
-    response = chat.generate_content([text+Prompt,img],generation_config=genai.types.GenerationConfig(
-        candidate_count=1,
-        max_output_tokens=50,
-        temperature=1.0))
+    response = model.generate_content([text+Prompt,img])
     response.resolve()
     new = jsonify(response.text)
     new.headers.add('Access-Control-Allow-Origin','http://localhost:3000')

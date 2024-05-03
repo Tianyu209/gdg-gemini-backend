@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 import textwrap
 import google.generativeai as genai
 from IPython.display import Markdown
@@ -39,6 +39,8 @@ def get_respond():
         
     response = chat.send_message(Prompt, stream=True)
     response.resolve()
+    new = jsonify(response.txt)
+    new.header.add('Access-Control-Allow-Origin','http://localhost:3000')
     return response.text
 
 @app.route('/api/recommend', methods=['GET', 'POST'])
@@ -55,6 +57,8 @@ def get_recommend():
     chat.send_message(text+Prompt,stream=True)
     response = chat.generate_content([text+Prompt,img])
     response.resolve()
+    new = jsonify(response.txt)
+    new.header.add('Access-Control-Allow-Origin','http://localhost:3000')
     return response.text
 
 if __name__ == '__main__':

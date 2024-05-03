@@ -42,9 +42,9 @@ def get_respond():
         max_output_tokens=50,
         temperature=1.0))
     response.resolve()
-    new = jsonify(response.txt)
-    new.header.add('Access-Control-Allow-Origin','http://localhost:3000')
-    return response.text
+    new = jsonify(response.text)
+    new.headers.add('Access-Control-Allow-Origin','http://localhost:3000')
+    return new
 
 @app.route('/api/recommend', methods=['GET', 'POST'])
 def get_recommend():
@@ -63,9 +63,9 @@ def get_recommend():
         max_output_tokens=50,
         temperature=1.0))
     response.resolve()
-    new = jsonify(response.txt)
-    new.header.add('Access-Control-Allow-Origin','http://localhost:3000')
-    return response.text
+    new = jsonify(response.text)
+    new.headers.add('Access-Control-Allow-Origin','http://localhost:3000')
+    return new
 
 if __name__ == '__main__':
     app.run(debug=True)

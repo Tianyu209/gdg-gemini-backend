@@ -27,7 +27,8 @@ def base642img(base64_string):
     imgdata = base64.b64decode(str(base64_string))
     img = Image.open(io.BytesIO(imgdata))
     opencv_img= cv2.cvtColor(np.array(img), cv2.COLOR_BGR2RGB)
-    return opencv_img 
+    img = Image.fromarray(opencv_img.astype('uint8')).convert('RGB')
+    return img 
 
 @app.route('/api/respond', methods=['GET', 'POST'])
 def get_respond():
